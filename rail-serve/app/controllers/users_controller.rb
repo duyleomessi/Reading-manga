@@ -11,16 +11,21 @@ class UsersController < ApplicationController
         json_response(@user)
     end
 
-    # uri: /users(post)
+    # uri: /users(post) signup
     def create 
-        @user = User.new(params.permit(:email, :password))
+        @email = params.permit(:email)
+        
+        @existingUser = User.where(email: @email)
 
-        puts "user is #{@user}"
-
-        if @user.save 
-            json_response({success: true})
+        if @existingUser.length != 0
+            json_response({success: false, message: "Email is existing"})
         else 
-            json_response({success: false})
-        end
+            @user = User.new(params.permit(:email, :password))
+            if @user.save 
+                json_response({success: true, user: @user})
+            else 
+                json_response({success: false, message: "Error when saving new user"})
+            end
+       end 
     end
 end
