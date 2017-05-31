@@ -6,9 +6,9 @@ class AuthenticationsController < ApplicationController
 
         if @user && @user.authenticate(params[:password])
             auth_token = JsonWebToken.encode({user_id: @user._id})
-            json_response({success: true, auth_token: auth_token})
+            json_response({success: true, auth_token: auth_token}, 200)
         else 
-            json_response({success: false, user: @user, email: @email})
+            json_response({success: false}, 401)
         end
     end
 end
