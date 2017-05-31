@@ -32,17 +32,17 @@ rail-serve/log/
 
 
 
-.idea
-node_modules
-jspm_packages
-npm-debug.*
-link-checker-results.txt
-app/**/*.js
-*.js.map
-e2e/**/*.js
-e2e/**/*.js.map
-_test-output
-_temp
+manga-reader-frontend/.idea
+manga-reader-frontend/node_modules
+manga-reader-frontend/jspm_packages
+manga-reader-frontend/npm-debug.*
+manga-reader-frontend/link-checker-results.txt
+manga-reader-frontend/app/**/*.js
+manga-reader-frontend/*.js.map
+manga-reader-frontend/e2e/**/*.js
+manga-reader-frontend/e2e/**/*.js.map
+manga-reader-frontend/_test-output
+manga-reader-frontend/_temp
 
 
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.

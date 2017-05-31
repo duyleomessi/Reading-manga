@@ -20,7 +20,7 @@ class ChaptersController < ApplicationController
 
     #uri: /chapters/manga/:mangaId
     def getAllChapter
-        @chapters = Chapter.where(manga: params[:mangaId])
+        @chapters = Chapter.where(manga: params[:mangaId]).order_by(:chapter => "desc")
         json_response(@chapters)
     end
 end
