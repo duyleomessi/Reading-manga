@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :chapters do 
     resources :comments, defaults: { format: :json }
   end 
+
+  match 'search/manga', to: 'search#searchManga', via: [:get]
   match 'manga/getByGenre', to: 'mangas#getByGenre', via: [:get]
   match 'chapters/manga/:mangaId', to: 'chapters#getAllChapter', via: [:get]
   match 'genres/list', to: 'mangas#getCategories', via: [:get]

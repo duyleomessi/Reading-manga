@@ -1,3 +1,4 @@
+# require 'bcrypt'
 
 class User
   include Mongoid::Document
@@ -8,11 +9,16 @@ class User
   field :password_digest, type: String
   field :favorite, type: Array
   field :admin, type: Boolean, default: false
+  field :created_at, type: Time, default: Time.now()
  
   has_secure_password
+  # def password
+  #   @password ||= Password.new(password_hash)
+  # end
 
-  # validation user
-  validates_uniqueness_of :email, :message => "Email Address Already In Use. Have You Forgot Your Password?"
-
+  # def password=(new_password)
+  #   @password = Password.create(new_password)
+  #   self.password_hash = @password
+  # end
   
 end

@@ -5,6 +5,6 @@ class Chapter
   field :chapter, type: Integer
   field :manga, type: String
   field :views, type: Integer
-  field :laste_update, type: Time, default: Time.now
+  field :laste_update, type: Time, default: Time.now()
   field :content, type: Array
 end
