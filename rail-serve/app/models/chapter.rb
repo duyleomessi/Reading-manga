@@ -1,10 +1,10 @@
 class Chapter
   include Mongoid::Document
-  belongs_to :manga
+  has_many :comments
 
   field :chapter, type: Integer
   field :manga, type: String
   field :views, type: Integer
-  field :laste_update, type: Time, default: Time.now()
+  field :last_update, type: String 
   field :content, type: Array
 end

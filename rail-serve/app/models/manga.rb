@@ -1,8 +1,5 @@
 class Manga
   include Mongoid::Document
-  has_many :chapters
-  has_many :comments
-
   field :title, type: String
   field :otherName, type: String
   field :cover, type: String
