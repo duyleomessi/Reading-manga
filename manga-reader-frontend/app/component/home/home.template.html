@@ -1,0 +1,42 @@
+<navbar></navbar>
+<div class="container-fluid dsColor dspopularitems">
+    <div class="col-md-9">
+        <div class="col-md-12" *ngFor="let manga of mangaInPage">
+            <div class="media alphabeticlist alphabeticlist2">
+                <div class="media-left">
+                    <a [routerLink]="['/manga', manga._id.$oid]" class="thumbnail">
+                        <img src='{{ manga.cover }}' alt=' {{ manga.title }}'>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h5 class="media-heading">
+                        <a [routerLink]="['/manga', manga._id.$oid ]" class="chart-title"><strong> {{manga.title}} </strong></a>
+                    </h5>
+                    <div class="readOnly-6"></div>
+                    <span> </span>
+                    <div>
+                        <i class="fa fa-eye"></i> {{ manga.views }}
+                    </div>
+                    <div> {{ manga.genres }} </div>
+                    <div>
+                        <a href="">Last Chaper: {{ manga.last_chapter }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pagination [mangaPerPage]="mangaPerPage" [mangas]="mangas" (choosePageEvent)="getMangaByPage($event)"></pagination>
+    </div>
+
+    <div class="col-md-3">
+        <div class="popularcategorylist">
+            <div class="panel-heading">Popularity by Genre</div>
+            <div class="panel-body">
+                <ul class="list-category">
+                    <li *ngFor="let category of categories"><a (click)="getMangaByCategory(category._id)" class="category" 
+                        [class.active]="isSelected(category._id)"> {{ category._id }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
