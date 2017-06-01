@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end 
 
   match 'search/manga', to: 'search#searchManga', via: [:get]
+  resources :favorites, defaults: { format: :json}
   match 'manga/getByGenre', to: 'mangas#getByGenre', via: [:get]
   match 'chapters/manga/:mangaId', to: 'chapters#getAllChapter', via: [:get]
   match 'genres/list', to: 'mangas#getCategories', via: [:get]
+  match 'recommend', to: 'recommendations#getRecommend', via: [:get]
 end

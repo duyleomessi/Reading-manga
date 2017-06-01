@@ -23,6 +23,7 @@ import { ChapterService } from './service/chapter.service';
 import { SearchService } from './service/search.service';
 import { CommentService } from './service/comment.service';
 import { FavoriteService } from './service/favorite.service';
+import { RecommendationService } from './service/recommentdation.service';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 import { routing } from './route/app.routing';
@@ -35,7 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TopComponent, RegisterComponent, LoginComponent
   ],
   providers: [MangaService, CategoryService, AuthService, ChapterService,
-    SearchService, CommentService, FavoriteService, AUTH_PROVIDERS],
+    SearchService, CommentService, FavoriteService, RecommendationService,  AUTH_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -81,5 +81,17 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+
+        <ul>
+            <li class="col-xs-2" *ngFor="let recManga of recommendManga"> 
+                <img class="img-responsive" src='{{ recManga.cover }}' alt='{{ recManga.title }}' >
+            </li>
+        </ul>
+    </div>
 </div>
+
+
+
 <footer></footer>
