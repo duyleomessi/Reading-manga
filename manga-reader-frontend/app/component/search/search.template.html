@@ -1,0 +1,30 @@
+<navbar></navbar>
+<div class="container-fluid dsColor dspopularitems">
+    <div class="col-md-9" *ngIf='mangaSearch'>
+        <div class="col-md-12" *ngFor="let manga of mangaSearch">
+            <div class="media alphabeticlist alphabeticlist2">
+                <div class="media-left">
+                    <a [routerLink]="['/manga', manga._id.$oid ]" class="thumbnail">
+                        <img src='{{ manga.cover }}' alt=' {{ manga.title }}'>
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h5 class="media-heading">
+                        <a [routerLink]="['/manga', manga._id.$oid ]" class="chart-title"><strong> {{manga.title}} </strong></a>
+                    </h5>
+                    <div class="readOnly-6"></div>
+                    <span> {{ manga.rating }}</span>
+                    <div>
+                        <i class="fa fa-eye"></i> {{ manga.views }}
+                    </div>
+                    <div> {{ manga.genres }} </div>
+                    <div>
+                        <a href="">Last Chaper: {{ manga.last_chapter }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>
+<footer></footer>
