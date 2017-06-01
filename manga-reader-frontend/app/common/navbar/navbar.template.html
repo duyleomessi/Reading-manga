@@ -1,0 +1,50 @@
+<div class="fronthome">
+    <div class="row">
+        <div class="col-md-12ds_header">
+            <!-- Website Menu -->
+            <div class="header">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-default home" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            <a routerLink='/'><img src="http://www.onemanga.com/images/onemanga.png" alt="OneManga - Manga Reader Online"></a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="navbar-menu">
+                            <!-- menu -->
+                            <ul class="frontmenu nav navbar-nav  navbar-right ">
+                                <li class=""><a href="">Home</a></li>
+                                <li class=""><a href="">Contact us</a></li>
+                                <li class=""><a style="cursor: pointer" [routerLink]="['/register']">Sign Up</a></li>
+                                <li class="" *ngIf="!_authService.canActivate()"><a style="cursor: pointer" [routerLink]="['/login']">Login</a></li>
+                                <li class="" *ngIf="_authService.canActivate()" (click)="logout()"><a style="cursor: pointer">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="container-fluid submenu">
+                    <div class="col-md-12">
+                        <div class="submenuarea">
+                            <div class="mainsubmenu">
+                                <ul>
+                                    <li><a href="">Surprise Me!</a></li>
+                                    <li><a href="mailto:admin@manga.com">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div class="searchbutton">
+                                <input #searchKey type="text" name="searchKey" placeholder="Search by title..">
+                                <button (click)="searchManga(searchKey.value)"><i class="fa fa-search"></i></button>
+                            </div>
+                            <div class="fablinks"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

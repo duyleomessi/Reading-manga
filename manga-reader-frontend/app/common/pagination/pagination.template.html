@@ -1,0 +1,9 @@
+<div class="col-md-12">
+    <div class="dsPagination">
+        <ul class="pagination">
+            <li (click)="previous()"><span>&laquo;</span></li>
+            <li *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="(selectedPage === page) ? true : false"><span>{{page}}</span></li>
+            <li (click)=next()><span>&raquo;</span></li>
+        </ul>
+    </div>
+</div>
