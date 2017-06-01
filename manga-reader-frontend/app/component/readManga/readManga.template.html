@@ -1,0 +1,47 @@
+<div *ngIf='chapter'>
+  <header>
+    <h1 class="col-xs-offset-5" style="color: #fff">chap {{ chapter.chapter }}</h1>
+  </header>
+
+  <section>
+    <article id="content" class="col-xs-8 col-xs-offset-2">
+      <img *ngFor="let image of chapter.content" src="{{ image }}" />
+    </article>
+  </section>
+
+  <div class="col-xs-8 col-xs-offset-2 comment-section">
+    <div class="row">
+      <div class="col-xs-4">
+        <h4>Comments</h4>
+      </div>
+
+      <form class="form-horizontal" [formGroup]="commentForm" (ngSubmit)="postComment()">
+        <div class="form-group">
+          <div class="alert alert-danger col-sm-9" role="alert" *ngIf="!loggedIn">You are not loggin</div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <textarea #content type="text" formControlName="content" class="form-control" id="content" rows="8"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-9">
+            <button type="submit" class="btn btn-primary btn-lg">Post</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+
+    <!--<div ng-repeat="cm in dish.comments |  orderBy: order">-->
+    <div *ngFor="let comment of comments">
+      <blockquote>
+        <h4>
+          <p> {{ comment.content }}</p>
+          <p> Post by: {{ comment.author }} at {{ comment.created_at }}</p>
+        </h4>
+      </blockquote>
+    </div>
+  </div>
+</div>

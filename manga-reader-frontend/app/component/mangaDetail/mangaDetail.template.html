@@ -1,0 +1,85 @@
+<navbar></navbar>
+<div class="container-fluid dsisngleshow" *ngIf="mangaDetail">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="boxed magaimage">
+                <img class="img-responsive" src='{{ mangaDetail.cover }}' alt='{{ mangaDetail.title }}' />
+            </div>
+        </div>
+        <div class="col-sm-8 magangsetilasrea">
+            <h2 class="widget-title">{{ mangaDetail.title }}</h2>
+            <dl class="dl-horizontal">
+
+                <dt>Status</dt>
+                <dd>
+                    <span class="label label-success"> {{ mangaDetail.status }} </span>
+
+                </dd>
+
+                <dt>Other names</dt>
+                <dd>{{ mangaDetail.otherName }}</dd>
+
+                <dt>Author(s)</dt>
+                <dd>
+                    <a *ngFor="let author of mangaDetail.author" (click)="searchAuthor(author)"> {{ author }}</a>
+                </dd>
+
+                <dt>Artist(s)</dt>
+                <dd>{{ mangaDetail.artist }}</dd>
+
+                <dt>Date of release</dt>
+                <dd> {{ mangaDetail.released }}</dd>
+
+                <dt>Genre </dt>
+                <dd class="mangaGenre">
+                    <a *ngFor="let genre of mangaDetail.genres"> {{ genre }} </a>
+                </dd>
+
+                <br/>
+
+                <dt>Views</dt>
+                <dd>{{ mangaDetail.views }}</dd>
+
+                <dt></dt>
+                <dd><button type="" *ngIf="!isFavorite" class="btn btn-primary" (click)="addFavorite()">Add to favorite</button></dd>
+                <dd><button type="" disabled *ngIf="isFavorite" class="btn btn-primary">Your favorite</button></dd>
+                <dd><div class="alert alert-danger col-sm-9" role="alert" *ngIf="!loggedIn">You are not loggin</div></dd>
+
+            </dl>
+
+        </div>
+    </div>
+
+    <div class="row mangasummery">
+        <div class="well">
+            <h5><strong>Summary</strong></h5>
+            <p>{{ mangaDetail.description }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="magaslistslisth">
+            <h2 class="widget-title"> {{ mangaDetail.title }} Chapters</h2>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="chapters">
+        <div class="col-lg-12">
+            <div class="magaslistslistc">
+                <ul class="chapters">
+                    <li class="volume-" *ngFor="let chapter of chapters">
+                        <p class="chapter-title-rtl">
+                            <img src="app/images/chapertslits.png"><a [routerLink]="['/chapters', mangaDetail._id.$oid, chapter._id.$oid ]">{{ mangaDetail.title}} {{ chapter.chapter }} </a>                            :
+                            <em></em>
+                        </p>
+                        <div class="action ">
+                            <div class="date-chapter-title-rtl"> {{ chapter.last_update }}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>
